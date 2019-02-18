@@ -72,7 +72,7 @@ class CreateItem extends Component {
         {(createItem, { loading, error }) => (
           <Form
             onSubmit={async e => {
-              //Stope the form from submitting
+              //Stop the form from submitting
               e.preventDefault();
               // call the mutation
               const res = await createItem();

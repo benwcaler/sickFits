@@ -28,14 +28,19 @@ function totalItems(cart) {
 }
 
 class TakeMyMoney extends Component {
-  onToken = (res, createOrder) => {
+  onToken = async (res, createOrder) => {
+    NProgress.start();
     // Manually call the mutation once we have the stripe token
-    createOrder({
+    const order = await createOrder({
       variables: {
         token: res.id
       }
     }).catch(err => {
       alert(err.message);
+    });
+    Router.push({
+      pathname: "/order",
+      query: { id: order.data.createOrder.id }
     });
   };
   render() {
@@ -51,7 +56,9 @@ class TakeMyMoney extends Component {
                 amount={calcTotalPrice(me.cart)}
                 name="Sick Fits"
                 description={`Order of ${totalItems(me.cart)} items.`}
-                image={me.cart[0].item && me.cart[0].item.image}
+                image={
+                  me.cart.length && me.cart[0].item && me.cart[0].item.image
+                }
                 stripeKey="pk_test_RwSP4QeJgsTpThoHAR7VRKmR"
                 currency="USD"
                 email={me.email}

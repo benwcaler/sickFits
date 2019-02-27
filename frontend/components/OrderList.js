@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import { formatDistance } from "date-fns";
+import { formatDistance, parseISO } from "date-fns";
 import Link from "next/link";
 import styled from "styled-components";
 import gql from "graphql-tag";
@@ -61,7 +61,7 @@ class OrderList extends Component {
                           <p>{order.items.length} Products</p>
                           <p>
                             {formatDistance(
-                              Date.parse(order.createdAt),
+                              parseISO(order.createdAt),
                               new Date()
                             )}
                           </p>

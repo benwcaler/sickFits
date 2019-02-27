@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Query } from "react-apollo";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import Head from "next/head";
 import gql from "graphql-tag";
 import formatMoney from "../lib/formatMoney";
@@ -57,7 +57,7 @@ class Order extends Component {
               <p>
                 <span>Date</span>
                 <span>
-                  {format(Date.parse(order.createdAt), "MMMM dd, YYYY @ H:mm", {
+                  {format(parseISO(order.createdAt), "MMMM dd, YYYY @ H:mm", {
                     awareOfUnicodeTokens: true
                   })}
                 </span>

@@ -55,10 +55,12 @@ class Order extends Component {
                 <span>Charge</span>
                 <span>{order.charge}</span>
               </p>
-              {/* <p>
+              <p>
                 <span>Date</span>
-                <span>{format(order.createdAt, "MMMM DD, YYYY h:mm a")}</span>
-              </p> */}
+                <span>
+                  {format(Date.parse(order.createdAt), "MMMM dd, yyyy @ H:mm")}
+                </span>
+              </p>
             </OrderStyles>
           );
         }}

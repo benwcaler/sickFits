@@ -1,6 +1,6 @@
 import { shallow, mount } from "enzyme";
 import toJSON from "enzyme-to-json";
-import CartCount from "../components/CartCOunt";
+import CartCount from "../components/CartCount";
 
 describe("<CartCount/>", () => {
   it("renders", () => {

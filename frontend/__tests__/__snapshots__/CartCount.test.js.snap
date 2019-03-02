@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CartCount/> marches the snapshot 1`] = `
+exports[`<CartCount/> matches the snapshot 1`] = `
 <CartCount__AnimationStyles>
   <TransitionGroup
     childFactory={[Function]}

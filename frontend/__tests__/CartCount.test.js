@@ -7,7 +7,7 @@ describe("<CartCount/>", () => {
     shallow(<CartCount count={10} />);
   });
 
-  it("marches the snapshot", () => {
+  it("matches the snapshot", () => {
     const wrapper = shallow(<CartCount count={10} />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
